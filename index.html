@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Realistic Illusions</title>
+<meta name="description" content="Realistic Illusions LLC builds theatre and cosplay props, models, scenic elements and special effects in Cheyenne, Wyoming.">
+<meta property="og:title" content="Realistic Illusions">
+<meta property="og:description" content="Props, models and scenic elements so convincing people have to touch them.">
+<meta property="og:image" content="img/work/imp-arch.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Libre+Franklin:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working shop. Big condensed headline over a photo, then services as a spec list,
+   a filterable gallery where every piece carries a "shop tag" of materials, story, contact. */
+:root {
+  --bg: #ECEAE6;        /* grey primer */
+  --surface: #F7F6F3;
+  --ink: #221F1C;
+  --muted: #5F5A54;
+  --line: #CFCBC4;
+  --accent: #B8621B;    /* cured urethane amber */
+  --accent-ink: #FFFFFF;
+  --tag: #F3E3CF;
+  --display: "Big Shoulders Display", "Oswald", "Arial Narrow", sans-serif;
+  --body: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1160px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #181614; --surface: #211E1B; --ink: #EDE9E3; --muted: #A69F96; --line: #3A3531;
+    --accent: #E08A3C; --accent-ink: #1A1714; --tag: #3A2A1B; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #181614; --surface: #211E1B; --ink: #EDE9E3; --muted: #A69F96; --line: #3A3531;
+  --accent: #E08A3C; --accent-ink: #1A1714; --tag: #3A2A1B; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.6 var(--body); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+h1, h2, h3 { font-family: var(--display); font-weight: 900; line-height: .95; text-wrap: balance; margin: 0; text-transform: uppercase; letter-spacing: .01em; }
+h2 { font-size: clamp(2.4rem, 6vw, 4rem); }
+h3 { font-size: 1.6rem; font-weight: 700; }
+.eyebrow { font: 500 .78rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+p { margin: 0; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+
+/* header */
+.site-head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; flex-wrap: wrap; }
+.brand { font: 900 1.5rem/1 var(--display); text-transform: uppercase; text-decoration: none; letter-spacing: .02em; }
+.brand span { color: var(--accent); }
+.site-head nav { display: flex; gap: clamp(14px, 3vw, 28px); flex-wrap: wrap; }
+.site-head nav a { text-decoration: none; font: 500 .85rem/1 var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.site-head nav a:hover { color: var(--ink); }
+
+/* hero */
+.hero { padding-block: clamp(40px, 8vw, 96px) clamp(40px, 6vw, 72px); }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 5vw, 64px); align-items: center; }
+.hero h1 { font-size: clamp(3.2rem, 9vw, 7.2rem); }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { margin-top: 24px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.btn { display: inline-block; padding: 14px 22px; font: 600 .95rem/1 var(--body); text-decoration: none; border: 2px solid var(--ink); border-radius: 2px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:hover { transform: translateY(-1px); }
+.hero-photo { position: relative; margin: 0; }
+.hero-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 22%; border-radius: 2px; }
+.hero-photo figcaption { position: absolute; left: 12px; bottom: 12px; right: 12px; }
+.touch { display: inline-block; background: var(--surface); color: var(--ink); font: 500 .78rem/1.4 var(--mono); padding: 8px 12px; border-left: 3px solid var(--accent); }
+
+/* services */
+section { padding-block: clamp(56px, 8vw, 104px); }
+.services { background: var(--surface); border-block: 1px solid var(--line); }
+.section-head { display: grid; gap: 16px; margin-bottom: 44px; }
+.svc-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.svc-list li { padding: 24px 24px 28px 0; border-bottom: 1px solid var(--line); display: grid; gap: 10px; align-content: start; }
+.svc-list li:not(:nth-child(3n+1)) { padding-left: 24px; border-left: 1px solid var(--line); }
+.svc-list p { color: var(--muted); font-size: .98rem; }
+.svc-list .mat { font: 400 .76rem/1.5 var(--mono); color: var(--muted); letter-spacing: .02em; }
+
+/* gallery */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+.filters button { font: 500 .8rem/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; padding: 10px 14px; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 2px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.piece { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.piece button.shot { padding: 0; border: 0; background: none; cursor: zoom-in; display: block; width: 100%; }
+.piece img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; }
+.piece h3 { font-size: 1.35rem; }
+.piece p { color: var(--muted); font-size: .95rem; }
+.shop-tag { display: flex; flex-wrap: wrap; gap: 4px 10px; font: 400 .74rem/1.4 var(--mono); color: var(--muted); }
+.shop-tag b { font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
+.slot { aspect-ratio: 4/3; border: 2px dashed var(--line); border-radius: 2px; display: grid; place-items: center; text-align: center; padding: 16px; font: 400 .8rem/1.5 var(--mono); color: var(--muted); background: repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--line) 35%, transparent) 14px 15px); }
+
+/* about */
+.about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; }
+.about .copy { display: grid; gap: 18px; max-width: 58ch; }
+.about img { width: 100%; aspect-ratio: 3/2; object-fit: cover; object-position: 70% 60%; border-radius: 2px; }
+.about figcaption { font: 400 .78rem/1.5 var(--mono); color: var(--muted); margin-top: 10px; }
+
+/* contact */
+.contact { background: var(--ink); color: var(--bg); }
+.contact .eyebrow { color: var(--accent); }
+.contact .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 64px); }
+.contact .lede { color: color-mix(in srgb, var(--bg) 75%, var(--ink)); }
+.contact dl { display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; margin: 28px 0 0; font-size: 1rem; }
+.contact dt { font: 500 .76rem/1.9 var(--mono); text-transform: uppercase; letter-spacing: .1em; color: color-mix(in srgb, var(--bg) 60%, var(--ink)); }
+.contact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+form { display: grid; gap: 14px; }
+label { display: grid; gap: 6px; font: 500 .76rem/1 var(--mono); text-transform: uppercase; letter-spacing: .1em; }
+input, select, textarea { font: 400 1rem/1.4 var(--body); padding: 12px; border-radius: 2px; border: 1px solid color-mix(in srgb, var(--bg) 30%, var(--ink)); background: color-mix(in srgb, var(--bg) 8%, var(--ink)); color: var(--bg); width: 100%; }
+textarea { min-height: 120px; resize: vertical; }
+.form-note { font: 400 .78rem/1.5 var(--mono); color: color-mix(in srgb, var(--bg) 60%, var(--ink)); }
+.contact .btn.primary { justify-self: start; border: 0; cursor: pointer; }
+footer { background: var(--ink); color: color-mix(in srgb, var(--bg) 60%, var(--ink)); border-top: 1px solid color-mix(in srgb, var(--bg) 18%, var(--ink)); font: 400 .78rem/1.5 var(--mono); }
+footer .wrap { padding-block: 22px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* lightbox */
+.lightbox { position: fixed; inset: 0; z-index: 50; background: rgba(12, 10, 9, .92); display: grid; place-items: center; padding: 24px; }
+.lightbox figure { margin: 0; max-width: min(1100px, 100%); display: grid; gap: 12px; }
+.lightbox img { max-height: 80vh; width: auto; margin: 0 auto; border-radius: 2px; }
+.lightbox figcaption { color: #EDE9E3; font: 400 .85rem/1.5 var(--mono); text-align: center; }
+.lightbox .nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(12,10,9,.6); border: 1px solid #EDE9E3; color: #EDE9E3; font: 400 2rem/1 var(--body); width: 44px; height: 56px; cursor: pointer; }
+.lightbox .prev { left: 8px; } .lightbox .next { right: 8px; }
+.piece .shot { position: relative; }
+.count { position: absolute; right: 8px; bottom: 8px; background: var(--surface); color: var(--ink); font: 500 .72rem/1 var(--mono); padding: 6px 8px; letter-spacing: .04em; }
+.lightbox .close { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); right: 16px; background: none; border: 1px solid #EDE9E3; color: #EDE9E3; font: 500 .8rem/1 var(--mono); padding: 10px 12px; cursor: pointer; }
+
+.draft-note { background: var(--tag); color: var(--ink); font: 400 .8rem/1.5 var(--mono); }
+.draft-note .wrap { padding-block: 10px; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .about .wrap, .contact .wrap { grid-template-columns: 1fr; }
+  .hero-photo img { aspect-ratio: 4/3; }
+  .svc-list, .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc-list li:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
+  .svc-list li:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--line); }
+}
+@media (max-width: 520px) {
+  .svc-list, .grid { grid-template-columns: 1fr; }
+  .svc-list li:nth-child(even) { padding-left: 0; border-left: 0; }
+  .contact dl { grid-template-columns: 1fr; gap: 2px; }
+  .contact dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="draft-note" role="note"><div class="wrap">Draft preview. Text in [brackets] is waiting on details from Dennis.</div></div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">Realistic <span>Illusions</span></a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Props · Models · Scenic · Effects</p>
+        <h1>Built to fool the eye. <em>Made to be handled.</em></h1>
+        <p class="lede">Realistic Illusions builds theatre and cosplay props, models, scenic elements and special effects that look real up close. People often have to pick our pieces up before they believe they aren't.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">Start a project</a>
+          <a class="btn" href="#work">See the work</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="img/work/imp-arch.jpg" alt="A glowing golden imp set into a dark sculpted stone archway">
+        <figcaption><span class="touch">That stone archway is sculpted foam.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we build</p>
+        <h2>Services</h2>
+        <p class="lede">From a single hand prop to a whole room. We sculpt, mold, cast and paint in-house. [Dennis: confirm or edit this list.]</p>
+      </div>
+      <ul class="svc-list">
+        <li>
+          <h3>Themed interiors &amp; bars</h3>
+          <p>Taverns, venues, game rooms and bar tops with faux stone, aged timber and custom finishes.</p>
+          <span class="mat">Cast beams · carved foam stone · live-edge &amp; epoxy</span>
+        </li>
+        <li>
+          <h3>Theatre &amp; cosplay props</h3>
+          <p>Hand props, food, hardware and sculptures that are light and durable but hold up to close inspection.</p>
+          <span class="mat">Foam · resin casts · 3D prints · paint</span>
+        </li>
+        <li>
+          <h3>Scenic elements</h3>
+          <p>Sets, rock walls, trees, fireplaces and hands-on exhibits for stages, museums and events.</p>
+          <span class="mat">Extruded polystyrene · hard coat · scenic paint</span>
+        </li>
+        <li>
+          <h3>Special effects</h3>
+          <p>Practical fire, glow and fog effects that are safe indoors and run all night.</p>
+          <span class="mat">LED flame · fog · cast logs and rock</span>
+        </li>
+        <li>
+          <h3>Floats &amp; models</h3>
+          <p>Parade floats, replicas and display models built to travel.</p>
+          <span class="mat">Foam mock-ups · framed structures · paint</span>
+        </li>
+        <li>
+          <h3>Restorations</h3>
+          <p>Repair and refinishing for damaged props, arcade cabinets, collectibles and artwork, matched to the original.</p>
+          <span class="mat">Color matching · re-casting · sculpt repair</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Portfolio</p>
+        <h2>Recent work</h2>
+      </div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="theatre" aria-pressed="false">Theatre</button>
+        <button type="button" data-filter="scenic" aria-pressed="false">Scenic &amp; exhibits</button>
+        <button type="button" data-filter="props" aria-pressed="false">Props</button>
+        <button type="button" data-filter="effects" aria-pressed="false">Effects</button>
+        <button type="button" data-filter="models" aria-pressed="false">Floats &amp; models</button>
+        <button type="button" data-filter="restoration" aria-pressed="false">Restoration</button>
+        <button type="button" data-filter="signs" aria-pressed="false">Signs &amp; engraving</button>
+      </div>
+      <div class="grid" id="gallery">
+        <article class="piece" data-cat="scenic">
+          <button type="button" class="shot" data-title="Quiet Fort, Cheyenne Children&#x27;s Museum" data-photos='[{"src": "img/work/fort-1.jpg", "cap": "The finished Quiet Fort reading nook and hex wall"}, {"src": "img/work/fort-2.jpg", "cap": "Hex wall with book shelves and sensory tiles"}, {"src": "img/work/fort-3.jpg", "cap": "Hex wall with cube seats"}, {"src": "img/work/fort-4.jpg", "cap": "CNC cutting the hexagonal frames"}, {"src": "img/work/fort-5.jpg", "cap": "Finished tiles laid out before install"}, {"src": "img/work/fort-6.jpg", "cap": "Butterfly diorama tile"}, {"src": "img/work/fort-7.jpg", "cap": "Grand Prismatic hot spring tile"}, {"src": "img/work/fort-8.jpg", "cap": "Snowy cabin tile"}, {"src": "img/work/fort-9.jpg", "cap": "Moths in black resin"}]' aria-label="View photos of Quiet Fort, Cheyenne Children&#x27;s Museum">
+            <img src="img/work/fort-1.jpg" alt="The finished Quiet Fort reading nook and hex wall" loading="lazy"><span class="count">9 photos</span>
+          </button>
+          <h3>Quiet Fort, Cheyenne Children&#x27;s Museum</h3>
+          <p>A calm sensory fort for the Cheyenne Children's Museum. Its walls hold CNC-cut hexagonal frames filled with 80 hands-on tiles: resin landscapes, a Grand Prismatic hot spring, fossils, stone, bark and a light-up fiber-optic tile.</p>
+          <div class="shop-tag"><span><b>Exhibit · Scenic</b></span><span>CNC-cut plywood · resin · natural materials · fiber optics</span></div>
+        </article>
+        <article class="piece" data-cat="restoration">
+          <button type="button" class="shot" data-title="Dinosaur climber restoration" data-photos='[{"src": "img/work/dino-1.jpg", "cap": "The restored ribcage climber"}, {"src": "img/work/dino-2.jpg", "cap": "Before: weathered ribcage"}, {"src": "img/work/dino-3.jpg", "cap": "Before: the skull climber"}, {"src": "img/work/dino-4.jpg", "cap": "Patching a rib"}, {"src": "img/work/dino-5.jpg", "cap": "Coating the skull"}, {"src": "img/work/dino-6.jpg", "cap": "The finished skull"}, {"src": "img/work/dino-7.jpg", "cap": "The finished ribcage"}]' aria-label="View photos of Dinosaur climber restoration">
+            <img src="img/work/dino-1.jpg" alt="The restored ribcage climber" loading="lazy"><span class="count">7 photos</span>
+          </button>
+          <h3>Dinosaur climber restoration</h3>
+          <p>The Cheyenne Children's Museum's dinosaur ribcage and skull climbers were cracked and stained after years outdoors. We patched them, resurfaced them and gave them a durable new finish.</p>
+          <div class="shop-tag"><span><b>Restoration · Exhibit</b></span><span>Concrete repair · Habitat Flex coating · paint</span></div>
+        </article>
+        <article class="piece" data-cat="theatre scenic props">
+          <button type="button" class="shot" data-title="Camelot set and props" data-photos='[{"src": "img/work/arthur-1.jpg", "cap": "The full set from the audience"}, {"src": "img/work/arthur-2.jpg", "cap": "Trees and castle under stage light"}, {"src": "img/work/arthur-3.jpg", "cap": "The sword in the stone"}, {"src": "img/work/arthur-4.jpg", "cap": "Chess set prop"}, {"src": "img/work/arthur-5.jpg", "cap": "Swords, shield and heads"}, {"src": "img/work/arthur-6.jpg", "cap": "Sculpted severed heads"}, {"src": "img/work/arthur-7.jpg", "cap": "Anvil prop"}]' aria-label="View photos of Camelot set and props">
+            <img src="img/work/arthur-1.jpg" alt="The full set from the audience" loading="lazy"><span class="count">7 photos</span>
+          </button>
+          <h3>Camelot set and props</h3>
+          <p>Set and props for Camelot: stylized trees, a castle, the sword in the stone, a chess set, heralds' trumpets, swords, a shield and severed heads.</p>
+          <div class="shop-tag"><span><b>Theatre</b></span><span>Foam · wood · sculpted heads · paint</span></div>
+        </article>
+        <article class="piece" data-cat="theatre props effects">
+          <button type="button" class="shot" data-title="Young Frankenstein lab" data-photos='[{"src": "img/work/yf-1.jpg", "cap": "The lab control panel, lit"}, {"src": "img/work/yf-2.jpg", "cap": "Gauges and wheel"}, {"src": "img/work/yf-3.jpg", "cap": "Panel in the stone lab set"}]' aria-label="View photos of Young Frankenstein lab">
+            <img src="img/work/yf-1.jpg" alt="The lab control panel, lit" loading="lazy"><span class="count">3 photos</span>
+          </button>
+          <h3>Young Frankenstein lab</h3>
+          <p>The laboratory control panel for Young Frankenstein, with working gauges, a big wheel and glowing tubes.</p>
+          <div class="shop-tag"><span><b>Theatre · Effects</b></span><span>Wood · found hardware · LED</span></div>
+        </article>
+        <article class="piece" data-cat="theatre scenic effects">
+          <button type="button" class="shot" data-title="Cinderella fireplace and effects" data-photos='[{"src": "img/work/cinderella-1.jpg", "cap": "The finished fireplace, lit"}, {"src": "img/work/cinderella-2.jpg", "cap": "Fireplace with the fire effect"}, {"src": "img/work/cinderella-3.jpg", "cap": "LED candle prop"}]' aria-label="View photos of Cinderella fireplace and effects">
+            <img src="img/work/cinderella-1.jpg" alt="The finished fireplace, lit" loading="lazy"><span class="count">3 photos</span>
+          </button>
+          <h3>Cinderella fireplace and effects</h3>
+          <p>For Rodgers &amp; Hammerstein's Cinderella: a stone fireplace with LED fire, plus flameless candles and a lit magic wand.</p>
+          <div class="shop-tag"><span><b>Theatre · Effects</b></span><span>Carved foam stone · LED fire · LED props</span></div>
+        </article>
+        <article class="piece" data-cat="scenic">
+          <button type="button" class="shot" data-title="Home tavern" data-photos='[{"src": "img/work/tavern-1.jpg", "cap": "The tavern, looking toward the bar"}, {"src": "img/work/tavern-2.jpg", "cap": "Fireplace corner and back hall"}, {"src": "img/work/tavern-3.jpg", "cap": "Bar, barrels and pendant lights"}, {"src": "img/work/tavern-4.jpg", "cap": "Fireplace, barrel tables and bar"}, {"src": "img/work/tavern-5.jpg", "cap": "Back-bar cabinets"}, {"src": "img/work/tavern-6.jpg", "cap": "Carved foam stone fireplace"}]' aria-label="View photos of Home tavern">
+            <img src="img/work/tavern-1.jpg" alt="The tavern, looking toward the bar" loading="lazy"><span class="count">6 photos</span>
+          </button>
+          <h3>Home tavern</h3>
+          <p>A full speakeasy-style tavern built out over several years. Beams are cast from a 100-year-old timber, and every fireplace stone is hand-carved foam.</p>
+          <div class="shop-tag"><span><b>Scenic · Interiors</b></span><span>Clay-sculpted wood grain · urethane resin · extruded polystyrene</span></div>
+        </article>
+        <article class="piece" data-cat="restoration">
+          <button type="button" class="shot" data-title="Robotron 2084 cabinet" data-photos='[{"src": "img/work/robotron-1.jpg", "cap": "The restored cabinet"}, {"src": "img/work/robotron-2.jpg", "cap": "Before: the cabinet as it arrived"}, {"src": "img/work/robotron-3.jpg", "cap": "Worn original side art"}, {"src": "img/work/robotron-4.jpg", "cap": "Stencil masking on the fresh silver paint"}, {"src": "img/work/robotron-5.jpg", "cap": "Finished side art"}, {"src": "img/work/robotron-6.jpg", "cap": "Restored control panel"}]' aria-label="View photos of Robotron 2084 cabinet">
+            <img src="img/work/robotron-1.jpg" alt="The restored cabinet" loading="lazy"><span class="count">6 photos</span>
+          </button>
+          <h3>Robotron 2084 cabinet</h3>
+          <p>A water-damaged Williams Robotron 2084 cabinet brought back: stripped, repaired, repainted and re-stenciled to match the original side art.</p>
+          <div class="shop-tag"><span><b>Restoration</b></span><span>Wood repair · primer · stencil-masked paint</span></div>
+        </article>
+        <article class="piece" data-cat="models">
+          <button type="button" class="shot" data-title="St. Paul&#x27;s parade float" data-photos='[{"src": "img/work/float-1.jpg", "cap": "The finished float with its banner"}, {"src": "img/work/float-2.jpg", "cap": "The church replica taking shape in the shop"}, {"src": "img/work/float-3.jpg", "cap": "The float on parade day"}]' aria-label="View photos of St. Paul&#x27;s parade float">
+            <img src="img/work/float-1.jpg" alt="The finished float with its banner" loading="lazy"><span class="count">3 photos</span>
+          </button>
+          <h3>St. Paul&#x27;s parade float</h3>
+          <p>A walk-in replica of the church, built on a trailer for the 2024 parade celebrating 140 years serving Cheyenne.</p>
+          <div class="shop-tag"><span><b>Floats · Models</b></span><span>Foam mock-up · OSB frame · paint</span></div>
+        </article>
+        <article class="piece" data-cat="signs">
+          <button type="button" class="shot" data-title="The Ranch sign" data-photos='[{"src": "img/work/ranch-1.jpg", "cap": "The sign installed"}, {"src": "img/work/ranch-2.jpg", "cap": "Finished in the shop"}, {"src": "img/work/ranch-3.jpg", "cap": "Fresh from the carve"}, {"src": "img/work/ranch-4.jpg", "cap": "Painting the lettering"}]' aria-label="View photos of The Ranch sign">
+            <img src="img/work/ranch-1.jpg" alt="The sign installed" loading="lazy"><span class="count">4 photos</span>
+          </button>
+          <h3>The Ranch sign</h3>
+          <p>A large carved cedar sign for Advocates for Recovery Colorado at The Ranch, finished with stain and a rope border.</p>
+          <div class="shop-tag"><span><b>Signs · Carving</b></span><span>CNC-carved cedar · paint · stain · rope</span></div>
+        </article>
+        <article class="piece" data-cat="signs">
+          <button type="button" class="shot" data-title="Harrington&#x27;s bar engraving" data-photos='[{"src": "img/work/harringtons-1.jpg", "cap": "Engraved lettering along the full U-shaped bar"}, {"src": "img/work/harringtons-2.jpg", "cap": "The bar installed with stools and taps"}, {"src": "img/work/harringtons-3.jpg", "cap": "\"South Side Original\" corner"}]' aria-label="View photos of Harrington&#x27;s bar engraving">
+            <img src="img/work/harringtons-1.jpg" alt="Engraved lettering along the full U-shaped bar" loading="lazy"><span class="count">3 photos</span>
+          </button>
+          <h3>Harrington&#x27;s bar engraving</h3>
+          <p>Custom engraving for Harrington's: the name, "Estd 2020" and "South Side Original" engraved into their live-edge bar top.</p>
+          <div class="shop-tag"><span><b>Commercial · Engraving</b></span><span>Custom engraving on a live-edge pine bar</span></div>
+        </article>
+        <article class="piece" data-cat="props">
+          <button type="button" class="shot" data-title="Imp in the archway" data-photos='[{"src": "img/work/imp-arch.jpg", "cap": "The lit imp archway"}]' aria-label="View photos of Imp in the archway">
+            <img src="img/work/imp-arch.jpg" alt="The lit imp archway" loading="lazy">
+          </button>
+          <h3>Imp in the archway</h3>
+          <p>A glowing golden imp set into a sculpted stone archway.</p>
+          <div class="shop-tag"><span><b>Props · Sculpture</b></span><span>Sculpted foam · paint · LED</span></div>
+        </article>
+        <article class="piece" data-cat="theatre props">
+          <button type="button" class="shot" data-title="Vintage wireless radio" data-photos='[{"src": "img/work/radio-1.jpg", "cap": "The finished radio"}, {"src": "img/work/radio-2.jpg", "cap": "The radio body in progress"}]' aria-label="View photos of Vintage wireless radio">
+            <img src="img/work/radio-1.jpg" alt="The finished radio" loading="lazy"><span class="count">2 photos</span>
+          </button>
+          <h3>Vintage wireless radio</h3>
+          <p>A period "two valve" wireless set built from scratch for the stage, shown in progress and finished.</p>
+          <div class="shop-tag"><span><b>Theatre · Props</b></span><span>Wood · 3D-printed parts · paint · LED</span></div>
+        </article>
+        <article class="piece" data-cat="props">
+          <button type="button" class="shot" data-title="Ship rigging hardware" data-photos='[{"src": "img/work/rigging-1.jpg", "cap": "A set of pulley blocks"}, {"src": "img/work/rigging-2.jpg", "cap": "Block with an iron hook"}, {"src": "img/work/rigging-3.jpg", "cap": "Deadeye close-up"}]' aria-label="View photos of Ship rigging hardware">
+            <img src="img/work/rigging-1.jpg" alt="A set of pulley blocks" loading="lazy"><span class="count">3 photos</span>
+          </button>
+          <h3>Ship rigging hardware</h3>
+          <p>Pulley blocks and deadeyes with iron hooks and chain. They look like old wood and iron but are light enough to hang anywhere.</p>
+          <div class="shop-tag"><span><b>Props</b></span><span>Cast resin · faux wood grain · faux iron</span></div>
+        </article>
+        <article class="piece" data-cat="effects props">
+          <button type="button" class="shot" data-title="Campfire and kettle" data-photos='[{"src": "img/work/campfire-kettle.jpg", "cap": "Campfire and kettle, lit"}]' aria-label="View photos of Campfire and kettle">
+            <img src="img/work/campfire-kettle.jpg" alt="Campfire and kettle, lit" loading="lazy">
+          </button>
+          <h3>Campfire and kettle</h3>
+          <p>A self-contained campfire with lit rocks and logs under a copper kettle on a stick tripod.</p>
+          <div class="shop-tag"><span><b>Effects · Props</b></span><span>Cast logs and rocks · LED</span></div>
+        </article>
+        <article class="piece" data-cat="props">
+          <button type="button" class="shot" data-title="Molding a barn beam" data-photos='[{"src": "img/work/beam-mold-1.jpg", "cap": "The finished mold next to the original beam"}, {"src": "img/work/beam-mold-2.jpg", "cap": "The beam in its mold shell"}]' aria-label="View photos of Molding a barn beam">
+            <img src="img/work/beam-mold-1.jpg" alt="The finished mold next to the original beam" loading="lazy"><span class="count">2 photos</span>
+          </button>
+          <h3>Molding a barn beam</h3>
+          <p>A large silicone mold taken from a weathered barn beam, so its grain and cracks can be cast again and again.</p>
+          <div class="shop-tag"><span><b>Molding · Casting</b></span><span>Rebound 25 silicone · rigid mother mold</span></div>
+        </article>
+        <article class="piece" data-cat="props">
+          <button type="button" class="shot" data-title="Turkey leg" data-photos='[{"src": "img/work/turkey-leg.jpg", "cap": "Turkey leg prop"}]' aria-label="View photos of Turkey leg">
+            <img src="img/work/turkey-leg.jpg" alt="Turkey leg prop" loading="lazy">
+          </button>
+          <h3>Turkey leg</h3>
+          <p>A fake turkey leg realistic enough that people reach for it.</p>
+          <div class="shop-tag"><span><b>Props</b></span><span>Cast resin · paint</span></div>
+        </article>
+        <article class="piece" data-cat="props signs">
+          <button type="button" class="shot" data-title="Engraved bottle box" data-photos='[{"src": "img/work/bottle-box.jpg", "cap": "Engraved presentation box"}]' aria-label="View photos of Engraved bottle box">
+            <img src="img/work/bottle-box.jpg" alt="Engraved presentation box" loading="lazy">
+          </button>
+          <h3>Engraved bottle box</h3>
+          <p>A wooden presentation box with an engraved emblem.</p>
+          <div class="shop-tag"><span><b>Props · Engraving</b></span><span>Wood · engraving · stain</span></div>
+        </article>
+        <article class="piece" data-cat="scenic">
+          <button type="button" class="shot" data-title="Gothic half bath" data-photos='[{"src": "img/work/gothic-bath.jpg", "cap": "The finished half bath"}]' aria-label="View photos of Gothic half bath">
+            <img src="img/work/gothic-bath.jpg" alt="The finished half bath" loading="lazy">
+          </button>
+          <h3>Gothic half bath</h3>
+          <p>A small themed bathroom with a painted bare-tree mural and gothic details.</p>
+          <div class="shop-tag"><span><b>Scenic · Interiors</b></span><span>Mural paint · decor</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about services" id="about">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">About</p>
+        <h2>Our story</h2>
+        <p>When I was young, I always wanted to be able to draw. With lots of erasing and concentration I could make semi-respectable artwork, but I was jealous of people who could do it with ease. It wasn't until a few decades later that I found I could work in three dimensions much more easily, recreating things in clay, foam and other materials. I just needed that extra dimension.</p>
+        <p>Today Realistic Illusions LLC works out of a shop outside Cheyenne, Wyoming, building for theatres, museums, businesses, churches, collectors and homeowners across the Colorado Front Range. [Dennis: add anything about the team, years in business or notable clients.]</p>
+      </div>
+      <figure>
+        <img src="img/shop-sunset.jpg" alt="Sunset over open prairie beside the Realistic Illusions workshop building">
+        <figcaption>The shop, outside Cheyenne.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let's build something</h2>
+        <p class="lede" style="margin-top:20px">Tell us what you need, when you need it and where it's going. Photos or sketches help.</p>
+        <dl>
+          <dt>Based in</dt><dd>Cheyenne, Wyoming</dd>
+          <dt>Serving</dt><dd>The Colorado Front Range and beyond</dd>
+          <dt>Email</dt><dd><a href="mailto:dennis@realisticillusions.com">dennis@realisticillusions.com</a></dd>
+          <dt>Facebook</dt><dd><a href="https://www.facebook.com/profile.php?id=61592138742973" target="_blank" rel="noopener">Realistic Illusions on Facebook</a></dd>
+        </dl>
+      </div>
+      <form id="quote">
+        <label for="q-name">Name<input id="q-name" name="name" autocomplete="name" required></label>
+        <label for="q-email">Email<input id="q-email" name="email" type="email" autocomplete="email" required></label>
+        <label for="q-type">Project type
+          <select id="q-type" name="type">
+            <option>Theatre prop</option><option>Cosplay prop</option><option>Model or miniature</option>
+            <option>Scenic element</option><option>Special effect</option><option>Restoration</option><option>Something else</option>
+          </select>
+        </label>
+        <label for="q-msg">Tell us about it<textarea id="q-msg" name="message" required></textarea></label>
+        <button class="btn primary" type="submit">Send request</button>
+        <p class="form-note" id="q-note" aria-live="polite">Preview only. At launch this form will send to dennis@realisticillusions.com.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Realistic Illusions LLC</span>
+    <span>Cheyenne, Wyoming · <a href="https://www.facebook.com/profile.php?id=61592138742973" target="_blank" rel="noopener">Facebook</a> · <a href="mailto:dennis@realisticillusions.com">dennis@realisticillusions.com</a></span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button type="button" class="close" id="lb-close">Close</button>
+  <button type="button" class="nav prev" id="lb-prev" aria-label="Previous photo">‹</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button type="button" class="nav next" id="lb-next" aria-label="Next photo">›</button>
+</div>
+
+<script>
+(function () {
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var buttons = document.querySelectorAll('.filters button');
+  var pieces = document.querySelectorAll('#gallery .piece');
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.dataset.filter;
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      pieces.forEach(function (p) { p.hidden = f !== 'all' && p.dataset.cat.split(' ').indexOf(f) < 0; });
+    });
+  });
+
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
+  var prev = document.getElementById('lb-prev'), next = document.getElementById('lb-next');
+  var set = [], idx = 0, title = '', lastFocus = null;
+  function show() {
+    var p = set[idx];
+    lbImg.src = p.src; lbImg.alt = p.cap;
+    lbCap.textContent = title + ' · ' + p.cap + (set.length > 1 ? '  (' + (idx + 1) + ' of ' + set.length + ')' : '');
+    prev.hidden = next.hidden = set.length < 2;
+  }
+  function step(d) { idx = (idx + d + set.length) % set.length; show(); }
+  function close() { lb.hidden = true; if (lastFocus) lastFocus.focus(); }
+  document.querySelectorAll('.piece .shot').forEach(function (s) {
+    s.addEventListener('click', function () {
+      set = JSON.parse(s.dataset.photos); idx = 0; title = s.dataset.title; lastFocus = s;
+      show(); lb.hidden = false; document.getElementById('lb-close').focus();
+    });
+  });
+  prev.addEventListener('click', function () { step(-1); });
+  next.addEventListener('click', function () { step(1); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+
+  document.getElementById('quote').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('q-note').textContent = 'Preview only. Nothing was sent. The form gets connected to your email before launch.';
+  });
+})();
+</script>
+</body>
+</html>
