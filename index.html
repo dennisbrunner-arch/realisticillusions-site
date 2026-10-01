@@ -157,8 +157,6 @@ footer .wrap { padding-block: 22px; display: flex; justify-content: space-betwee
 </head>
 <body>
 
-<div class="draft-note" role="note"><div class="wrap">Draft preview. Text in [brackets] is waiting on details from Dennis.</div></div>
-
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="#top">Realistic <span>Illusions</span></a>
@@ -195,7 +193,7 @@ footer .wrap { padding-block: 22px; display: flex; justify-content: space-betwee
       <div class="section-head">
         <p class="eyebrow">What we build</p>
         <h2>Services</h2>
-        <p class="lede">From a single hand prop to a whole room. We sculpt, mold, cast and paint in-house. [Dennis: confirm or edit this list.]</p>
+        <p class="lede">From a single hand prop to a whole room. We sculpt, mold, cast and paint in-house.</p>
       </div>
       <ul class="svc-list">
         <li>
@@ -403,7 +401,7 @@ footer .wrap { padding-block: 22px; display: flex; justify-content: space-betwee
         <p class="eyebrow">About</p>
         <h2>Our story</h2>
         <p>When I was young, I always wanted to be able to draw. With lots of erasing and concentration I could make semi-respectable artwork, but I was jealous of people who could do it with ease. It wasn't until a few decades later that I found I could work in three dimensions much more easily, recreating things in clay, foam and other materials. I just needed that extra dimension.</p>
-        <p>Today Realistic Illusions LLC works out of a shop outside Cheyenne, Wyoming, building for theatres, museums, businesses, churches, collectors and homeowners across the Colorado Front Range. [Dennis: add anything about the team, years in business or notable clients.]</p>
+        <p>Today Realistic Illusions LLC works out of a shop outside Cheyenne, Wyoming, building for theatres, museums, businesses, churches, collectors and homeowners across the Colorado Front Range.</p>
       </div>
       <figure>
         <img src="img/shop-sunset.jpg" alt="Sunset over open prairie beside the Realistic Illusions workshop building">
@@ -436,7 +434,7 @@ footer .wrap { padding-block: 22px; display: flex; justify-content: space-betwee
         </label>
         <label for="q-msg">Tell us about it<textarea id="q-msg" name="message" required></textarea></label>
         <button class="btn primary" type="submit">Send request</button>
-        <p class="form-note" id="q-note" aria-live="polite">Preview only. At launch this form will send to dennis@realisticillusions.com.</p>
+        <p class="form-note" id="q-note" aria-live="polite">Sending opens a new email to dennis@realisticillusions.com with your details filled in.</p>
       </form>
     </div>
   </section>
@@ -500,7 +498,11 @@ footer .wrap { padding-block: 22px; display: flex; justify-content: space-betwee
 
   document.getElementById('quote').addEventListener('submit', function (e) {
     e.preventDefault();
-    document.getElementById('q-note').textContent = 'Preview only. Nothing was sent. The form gets connected to your email before launch.';
+    var f = e.target;
+    var subject = 'Project inquiry: ' + f.type.value;
+    var body = f.message.value + '\n\nFrom: ' + f.name.value + ' <' + f.email.value + '>';
+    window.location.href = 'mailto:dennis@realisticillusions.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    document.getElementById('q-note').textContent = 'Your email app should open with the message ready to send. If it does not, email dennis@realisticillusions.com directly.';
   });
 })();
 </script>
